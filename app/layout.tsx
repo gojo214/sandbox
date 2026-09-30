@@ -2,14 +2,25 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Metadata } from "next"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: {
+    default: "Buildon — Build 3D games with AI",
+    template: "%s · Buildon",
+  },
+  description:
+    "Describe a game and watch it come to life. Buildon is an agentic three.js game builder that plans the scene, writes the code, and streams playable worlds from plain English.",
+}
 
 export default function RootLayout({
   children,
