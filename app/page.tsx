@@ -9,9 +9,10 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@/components/ui/empty"
-
+import { auth } from "@clerk/nextjs/server"
+import { UserButton } from "@clerk/nextjs"
 export default async function Page() {
- 
+  await auth.protect({ unauthenticatedUrl: "/sign-in" })
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6">
@@ -29,7 +30,7 @@ export default async function Page() {
           </EmptyDescription>
         </EmptyHeader>
         <EmptyContent className="max-w-2xl gap-6">
-       
+       <UserButton/>
         </EmptyContent>
       </Empty>
     </div>
