@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/empty"
 import { auth } from "@clerk/nextjs/server"
 import { UserButton } from "@clerk/nextjs"
+import { ChatComposer } from "@/features/chat/chat-composer"
 export default async function Page() {
   await auth.protect({ unauthenticatedUrl: "/sign-in" })
 
@@ -30,7 +31,7 @@ export default async function Page() {
           </EmptyDescription>
         </EmptyHeader>
         <EmptyContent className="max-w-2xl gap-6">
-       <UserButton/>
+       <ChatComposer />
         </EmptyContent>
       </Empty>
     </div>
